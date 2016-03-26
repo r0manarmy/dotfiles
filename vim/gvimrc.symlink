@@ -1,0 +1,4 @@
+set guifont=Hack\ 10
+
+set background=light
+colorscheme PaperColor

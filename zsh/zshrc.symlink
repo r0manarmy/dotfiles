@@ -1,0 +1,14 @@
+# initialize "RVM" if present
+RVM_SCRIPT="$HOME/.rvm/scripts/rvm";
+if [ -f $RVM_SCRIPT ];
+then
+  source $RVM_SCRIPT;
+fi
+
+for f in {.localrc,.zshrc.aliases,.zshrc.ohmyzsh};
+do
+  if [ -f $f ];
+  then
+    source $f;
+  fi
+done

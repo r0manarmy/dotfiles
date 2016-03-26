@@ -1,0 +1,18 @@
+[alias]
+  st = status
+  co = checkout
+  hist = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
+  fix = "!f() { vim -p `git diff --name-only | uniq`; }; f"
+[core]
+  autocrlf = input
+  editor = vim
+  ignorecase = true
+[commit]
+  template = ~/.gitmessage
+[push]
+  default = tracking
+[branch]
+  autosetuprebase = always
+
+[include]
+  path = ~/.gitconfig.local

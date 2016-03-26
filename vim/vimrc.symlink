@@ -1,0 +1,92 @@
+set nocompatible
+filetype off
+
+if filereadable(expand("~/.vimrc.bundles"))
+  set rtp+=~/.vim/bundle/Vundle.vim
+  call vundle#begin()
+
+  source ~/.vimrc.bundles
+
+  call vundle#end()            " required
+endif
+
+set relativenumber
+set number
+set backspace=indent,eol,start  " Allow backspace in insert mode
+set incsearch                   " show search matches as you type
+set smartcase                   " ignore case if search pattern is all lowercase
+set hlsearch                    " highlight search terms
+set gcr=a:blinkon0              " Disable cursor blink
+set encoding=utf-8              " Necessary to show Unicode glyphs
+set laststatus=2                " Always display the statusline in all windows
+set noshowmode                  " Hide the default mode text (e.g. -- INSERT -- below the statusline)
+set noswapfile
+set hidden
+set foldmethod=syntax
+set nofoldenable
+syntax on
+colorscheme railscasts
+set background=dark
+
+set tabstop=2
+set shiftwidth=2
+set expandtab
+
+let mapleader = " "
+
+" bind K to grep word under cursor
+nnoremap K :Ag<CR>
+
+" Tab completion
+" will insert tab at beginning of line,
+" will use completion if not at beginning
+set wildmode=list:longest,list:full
+function! InsertTabWrapper()
+  let col = col('.') - 1
+  if !col || getline('.')[col - 1] !~ '\k'
+    return "\<tab>"
+  else
+    return "\<c-p>"
+  endif
+endfunction
+inoremap <Tab> <c-r>=InsertTabWrapper()<cr>
+
+let g:airline_powerline_fonts = 1
+
+function! NeatFoldText()
+  let line = ' ' . substitute(getline(v:foldstart), '^\s*"\?\s*\|\s*"\?\s*{{' . '{\d*\s*', '', 'g') . ' '
+  let lines_count = v:foldend - v:foldstart + 1
+  let lines_count_text = '| ' . printf("%10s", lines_count . ' lines') . ' |'
+  let foldchar = ' ' " matchstr(&fillchars, 'fold:\zs.')
+  let left_padding = (v:foldlevel - 1) * &tabstop - 1
+  let foldtextstart = strpart(repeat(foldchar, left_padding) . line, 0, (winwidth(0)*2)/3)
+  let foldtextend = lines_count_text . repeat(foldchar, 8)
+  let foldtextlength = strlen(substitute(foldtextstart . foldtextend, '.', 'x', 'g')) + &foldcolumn
+  return foldtextstart . repeat(foldchar, winwidth(0)-foldtextlength) . foldtextend
+endfunction
+set foldtext=NeatFoldText()
+nnoremap <C-m><C-m> za
+nnoremap <C-m><C-o> zo
+
+set list listchars=tab:»·,trail:·
+
+imap <C-v> <C-r>*
+nmap <leader>l :nohlsearch<CR>
+nmap <leader>w :w<CR>
+nmap <unique> <silent> <Leader>b <Plug>SelectBuf
+
+" Get off my lawn
+nnoremap <Left> :echoe "Use h"<CR>
+nnoremap <Right> :echoe "Use l"<CR>
+nnoremap <Up> :echoe "Use k"<CR>
+nnoremap <Down> :echoe "Use j"<CR>
+
+" Quicker window movement
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-h> <C-w>h
+nnoremap <C-l> <C-w>l
+
+let g:html_indent_tags = 'li\|p'
+
+filetype plugin indent on

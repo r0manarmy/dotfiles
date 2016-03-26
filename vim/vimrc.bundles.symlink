@@ -1,0 +1,36 @@
+Plugin 'gmarik/Vundle.vim'
+
+Plugin 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
+Plugin 'vim-scripts/genutils'
+Plugin 'vim-scripts/SelectBuf'
+Plugin 'vim-scripts/matchit.zip'
+Plugin 'vim-scripts/ctags.vim'
+Plugin 'vim-scripts/tComment'
+Plugin 'danro/rename.vim'
+Plugin 'kien/ctrlp.vim'
+Plugin 'tpope/vim-surround'
+Plugin 'scrooloose/syntastic'
+Plugin 'tpope/vim-endwise'
+
+" ruby
+Plugin 'kana/vim-textobj-user'
+Plugin 'nelstrom/vim-textobj-rubyblock'
+Plugin 'tpope/vim-rails'
+
+" ops
+Plugin 'puppetlabs/puppet-syntax-vim'
+Plugin 'pearofducks/ansible-vim'
+
+Plugin 'rking/ag.vim'
+
+" git
+Plugin 'tpope/vim-fugitive'
+Plugin 'int3/vim-extradite'
+
+" colors
+Plugin 'jpo/vim-railscasts-theme'
+Plugin 'NLKNguyen/papercolor-theme'
+
+if filereadable(expand("~/.vimrc.bundles.local"))
+  source ~/.vimrc.bundles.local
+endif
