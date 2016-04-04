@@ -89,4 +89,7 @@ nnoremap <C-l> <C-w>l
 
 let g:html_indent_tags = 'li\|p'
 
+let g:go_fmt_command = "goimports"
+let g:go_fmt_fail_silently = 1
+
 filetype plugin indent on

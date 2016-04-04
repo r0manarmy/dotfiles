@@ -17,6 +17,9 @@ Plugin 'kana/vim-textobj-user'
 Plugin 'nelstrom/vim-textobj-rubyblock'
 Plugin 'tpope/vim-rails'
 
+" go
+Plugin 'fatih/vim-go'
+
 " ops
 Plugin 'puppetlabs/puppet-syntax-vim'
 Plugin 'pearofducks/ansible-vim'
