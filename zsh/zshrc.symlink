@@ -3,6 +3,7 @@ RVM_SCRIPT="$HOME/.rvm/scripts/rvm";
 if [ -f $RVM_SCRIPT ];
 then
   source $RVM_SCRIPT;
+  export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 fi
 
 for f in {.localrc,.zshrc.aliases,.zshrc.ohmyzsh};
