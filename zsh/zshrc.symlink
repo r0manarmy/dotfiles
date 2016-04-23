@@ -10,6 +10,6 @@ for f in {.localrc,.zshrc.aliases,.zshrc.ohmyzsh};
 do
   if [ -f $f ];
   then
-    source $f;
+    source "$HOME/$f";
   fi
 done
