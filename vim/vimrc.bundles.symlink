@@ -24,6 +24,9 @@ Plugin 'fatih/vim-go'
 Plugin 'puppetlabs/puppet-syntax-vim'
 Plugin 'pearofducks/ansible-vim'
 
+" rust
+Plugin 'rust-lang/rust.vim'
+
 Plugin 'rking/ag.vim'
 
 " git
