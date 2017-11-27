@@ -31,9 +31,5 @@ bind j select-pane -D
 bind k select-pane -U
 bind l select-pane -R
 
-bind -t vi-copy 'v' begin-selection
-bind -t vi-copy 'y' copy-selection
-
 # enable mouse
-set -g mouse-utf8 on
 set -g mouse on
