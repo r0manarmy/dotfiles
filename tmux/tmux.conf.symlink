@@ -4,7 +4,7 @@ set -g prefix C-Space
 bind Space send-prefix
 
 # Powerline
-source ~/.local/lib/python2.7/site-packages/powerline/bindings/tmux/powerline.conf
+source ~/.local/lib/python3.7/site-packages/powerline/bindings/tmux/powerline.conf
 set -g default-terminal "screen-256color"
 
 # start window numbers at 1 to match keyboard order with tmux window order
@@ -15,7 +15,6 @@ set-window-option -g pane-base-index 1
 set -g renumber-windows on
 
 # remove administrative debris (session name, hostname, time) in status bar
-set -g status-left ''
 set -g status-right ''
 
 # increase scrollback lines
