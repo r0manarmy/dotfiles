@@ -1,0 +1,66 @@
+#!/usr/bin/env ruby
+
+require 'paint'
+require 'optparse'
+
+usage = <<~USAGE
+Usage: highlight <pattern> <color> [options]
+
+Example:
+
+  highlight patter red
+
+USAGE
+
+trap "SIGINT" do
+  exit 130
+end
+
+options =  {}
+
+OptionParser.new do |opts|
+  opts.banner = usage
+
+  opts.on("-b", "--background", "change background color instead of foreground") do |b|
+    options[:background] = b
+  end
+end.parse!
+
+maybe_pattern = ARGV.shift
+maybe_color = ARGV.shift
+if !maybe_pattern
+  abort "Must provide a pattern to match."
+elsif !maybe_color
+  abort "Must specify a highlight color"
+elsif !Paint.rgb_name(maybe_color)
+  abort "'#{maybe_color}' can not be converted to a color."
+end
+
+ignore_case = maybe_pattern.downcase == maybe_pattern
+pattern = Regexp.new(maybe_pattern, ignore_case)
+
+color = if Paint::ANSI_COLORS[maybe_color.to_sym]
+          maybe_color.to_sym
+        else
+          maybe_color
+        end
+
+format = [color]
+if options[:background]
+  format.prepend(nil)
+end
+
+$stdout.sync = true
+
+begin
+  ARGF.each_line do |line|
+    line.chomp!
+    if pattern.match?(line)
+      puts Paint[line, *format]
+    else
+      puts line
+    end
+  end
+rescue Errno::EPIPE
+  exit(74)
+end
