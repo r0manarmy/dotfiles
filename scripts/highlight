@@ -8,7 +8,7 @@ Usage: highlight <pattern> <color> [options]
 
 Example:
 
-  highlight patter red
+  highlight pattern red
 
 USAGE
 
