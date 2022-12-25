@@ -13,6 +13,7 @@
   default = tracking
 [branch]
   autosetuprebase = always
-
 [include]
   path = ~/.gitconfig.local
+[init]
+  defaultBranch = main

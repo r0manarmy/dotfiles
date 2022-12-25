@@ -1,4 +1,4 @@
-export PATH="$HOME/.rbenv/bin:$PATH"
+export PATH="$HOME/.rbenv/bin:$PATH:/usr/local/go/bin:$HOME/.local/bin"
 
 for f in {.localrc,.zshrc.aliases,.zshrc.ohmyzsh};
 do
