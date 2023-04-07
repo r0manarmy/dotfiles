@@ -1,4 +1,4 @@
-set guifont=Hack\ 10
+set guifont=CodeNewRoman\ Nerd\ Font\ 14
 
 set background=light
 colorscheme PaperColor
