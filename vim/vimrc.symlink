@@ -1,14 +1,38 @@
 set nocompatible
 filetype off
 
-if filereadable(expand("~/.vimrc.bundles"))
-  set rtp+=~/.vim/bundle/Vundle.vim
-  call vundle#begin()
+call plug#begin()
 
-  source ~/.vimrc.bundles
+Plug 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
+Plug 'vim-scripts/genutils'
+Plug 'vim-scripts/SelectBuf'
+Plug 'vim-scripts/matchit.zip'
+Plug 'vim-scripts/ctags.vim'
+Plug 'vim-scripts/tComment'
+Plug 'danro/rename.vim'
+Plug 'kien/ctrlp.vim'
+Plug 'tpope/vim-surround'
+Plug 'scrooloose/syntastic'
+Plug 'tpope/vim-endwise'
 
-  call vundle#end()            " required
-endif
+" ruby
+Plug 'kana/vim-textobj-user'
+Plug 'nelstrom/vim-textobj-rubyblock'
+Plug 'tpope/vim-rails'
+
+" go
+Plug 'fatih/vim-go'
+
+" rust
+Plug 'rust-lang/rust.vim'
+
+" git
+Plug 'tpope/vim-fugitive'
+Plug 'int3/vim-extradite'
+
+" colors
+
+call plug#end()
 
 set relativenumber
 set number
@@ -25,7 +49,7 @@ set hidden
 set foldmethod=syntax
 set nofoldenable
 syntax on
-colorscheme railscasts
+" colorscheme railscasts
 set background=dark
 
 set tabstop=2
