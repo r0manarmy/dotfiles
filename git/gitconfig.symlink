@@ -1,6 +1,4 @@
 [alias]
-  st = status
-  co = checkout
   hist = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
   fix = "!f() { vim -p `git diff --name-only | uniq`; }; f"
 [core]
