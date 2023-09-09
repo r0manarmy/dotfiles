@@ -48,8 +48,8 @@ set noswapfile
 set hidden
 set foldmethod=syntax
 set nofoldenable
+set linebreak                   " line breaks on word boundary
 syntax on
-" colorscheme railscasts
 set background=dark
 
 set tabstop=2
