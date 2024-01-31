@@ -24,6 +24,9 @@ require("lazy").setup({
       vim.cmd([[colorscheme rose-pine]])
     end,
   },
+  {
+    'olimorris/onedarkpro.nvim',
+  },
 
   -- statusline
   { 
@@ -498,3 +501,15 @@ vim.api.nvim_create_autocmd('BufWritePre', {
     vim.lsp.buf.format()
   end
 })
+
+if vim.g.neovide then
+  vim.cmd([[colorscheme onelight]])
+  vim.g.neovide_cursor_vfx_mode = ""
+  vim.g.neovide_cursor_animation_length = 0
+  vim.g.neovide_scroll_animation_length = 0
+  vim.o.guifont ="CodeNewRoman Nerd Font Mono:h14"
+
+  vim.keymap.set('v', '<C-c>', '"+y') -- Copy
+  vim.keymap.set('c', '<C-v>', '<C-R>+') -- Paste command mode
+  vim.keymap.set('i', '<C-v>', '<C-R>+') -- Paste insert mode
+end
