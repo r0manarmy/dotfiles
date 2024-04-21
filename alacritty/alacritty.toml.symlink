@@ -1,0 +1,36 @@
+[colors.normal]
+black = "0x646464"
+blue = "0x7AABD4"
+cyan = "0x79D4D5"
+green = "0xA9D3AB"
+magenta = "0xc397d8"
+red = "0xF58E8E"
+white = "0xD4D4D4"
+yellow = "0xFED37E"
+
+[colors.primary]
+background = "0x2D2D2D"
+foreground = "0xD4D4D4"
+
+[env]
+TERM = "xterm-256color"
+
+[font]
+size = 18.0
+
+[font.normal]
+family = "CodeNewRoman Nerd Font Mono"
+
+[[keyboard.bindings]]
+action = "ToggleFullscreen"
+key = "F11"
+
+[scrolling]
+history = 0
+
+[window]
+opacity = 0.95
+
+[window.padding]
+x = 5
+y = 0
