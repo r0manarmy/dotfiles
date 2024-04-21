@@ -5,6 +5,9 @@
   autocrlf = input
   editor = nvim
   ignorecase = true
+  ;pager = delta
+[diff]
+  algorithm = histogram
 [commit]
   template = ~/.gitmessage
 [push]
@@ -15,3 +18,5 @@
   path = ~/.gitconfig.local
 [init]
   defaultBranch = main
+[merge]
+  conflictstyle = zdiff3
