@@ -9,14 +9,16 @@
 [diff]
   algorithm = histogram
 [commit]
-  template = ~/.gitmessage
+  template = gitmessage
 [push]
   default = tracking
 [branch]
   autosetuprebase = always
 [include]
-  path = ~/.gitconfig.local
+  path = config.local
 [init]
   defaultBranch = main
 [merge]
   conflictstyle = zdiff3
+[pager]
+  branch = false

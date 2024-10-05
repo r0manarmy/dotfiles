@@ -3,3 +3,5 @@ alias edit-zshconfig="vim ~/.zshrc"
 alias fly=$HOME/.fly/bin/fly
 alias air=$HOME/go/bin/air
 alias vim=nvim
+alias wo="tmuxp load"
+alias load_env="set -a && source .env; set +a;"

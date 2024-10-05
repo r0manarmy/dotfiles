@@ -1,10 +1,11 @@
+set-option -sa terminal-overrides ",xterm*:Tc"
+
 # Set prefix to Ctrl-Space
 unbind C-b
 set -g prefix C-Space
 bind Space send-prefix
 
 # Theme
-set -g default-terminal "screen-256color"
 set -g @nova-pane "#I#{?pane_in_mode,  #{pane_mode},}  #W"
 set -g @nova-segment-mode "#{?client_prefix,Ω,ω}"
 set -g @nova-segment-mode-colors "#50fa7b #282a36"
@@ -15,12 +16,11 @@ set -g @nova-nerdfonts-left 
 set -g @nova-nerdfonts-right 
 run-shell "$HOME/.tmux/plugins/tmux-nova/nova.tmux"
 
-# start window numbers at 1 to match keyboard order with tmux window order
+# start windows and panes numbers at 1
 set -g base-index 1
+set -g pane-base-index 1
 set-window-option -g pane-base-index 1
-
-# renumber windows sequentially after closing any of them
-set -g renumber-windows on
+set-option -g renumber-windows on
 
 # remove administrative debris (session name, hostname, time) in status bar
 set -g status-right ''
@@ -29,8 +29,8 @@ set -g status-right ''
 set -g history-limit 10000
 
 # swap windows
-bind -n C-S-h swap-window -t -1
-bind -n C-S-l swap-window -t +1
+bind -n C-S-h swap-window -d -t -1
+bind -n C-S-l swap-window -d -t +1
 
 setw -g mode-keys vi
 bind h select-pane -L
